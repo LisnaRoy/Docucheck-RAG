@@ -1,0 +1,15 @@
+
+[
+  {
+    "question": "What is the minimum attendance requirement?",
+    "expected_answer": "75%",
+    "expected_pages": [12],
+    "answerable": true
+  },
+  {
+    "question": "What is the university's annual profit?",
+    "expected_answer": "Not found in the document",
+    "expected_pages": [],
+    "answerable": false
+  }
+]
