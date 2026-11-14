@@ -1,0 +1,8 @@
+# Retrieval (Person A)
+pymupdf
+numpy
+sentence-transformers
+faiss-cpu
+
+# Tests
+pytest

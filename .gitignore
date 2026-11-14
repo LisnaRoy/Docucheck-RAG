@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+.pytest_cache/
+
+# Built indexes are generated from the PDFs; rebuild them locally.
+data/index/*
+!data/index/.gitkeep
