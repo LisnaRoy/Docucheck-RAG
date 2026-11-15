@@ -1,21 +1,36 @@
+import tempfile
+from pathlib import Path
+
 import streamlit as st
 
 from docucheck.pipeline import ask
+from docucheck.retriever import index_pdf
 
 st.set_page_config(page_title="DocuCheck", page_icon="📄")
 st.title("DocuCheck")
 st.caption("Ask questions about your PDF and get answers with page citations.")
 
-uploaded = st.file_uploader("Upload a PDF", type="pdf")
-if uploaded is not None:
-    st.session_state["pdf_name"] = uploaded.name
-    st.info(
-        f"Loaded {uploaded.name}. Indexing is not connected yet; "
-        "answers come from placeholder text until the retriever is plugged in."
-    )
-
 if "messages" not in st.session_state:
     st.session_state["messages"] = []
+
+uploaded = st.file_uploader("Upload a PDF", type="pdf")
+if uploaded is not None and st.session_state.get("indexed_file") != uploaded.name:
+    with st.spinner(f"Indexing {uploaded.name}..."):
+        with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
+            pdf_path = Path(tmp) / uploaded.name
+            pdf_path.write_bytes(uploaded.getvalue())
+            try:
+                index_pdf(pdf_path)
+            except ValueError as e:
+                st.error(str(e))
+            else:
+                st.session_state["indexed_file"] = uploaded.name
+                st.session_state["messages"] = []
+
+if "indexed_file" in st.session_state:
+    st.caption(f"Indexed: {st.session_state['indexed_file']}")
+else:
+    st.caption("No upload yet. Questions use the index already saved in data/index.")
 
 
 def show_sources(sources):
@@ -38,8 +53,15 @@ if question:
         st.write(question)
 
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
-            result = ask(question)
+        try:
+            with st.spinner("Thinking..."):
+                result = ask(question)
+        except FileNotFoundError:
+            st.warning("No index yet. Upload a PDF first.")
+            st.stop()
+        except Exception as e:
+            st.error(f"Something went wrong: {e}")
+            st.stop()
         st.write(result["answer"])
         if result["found"]:
             show_sources(result["sources"])

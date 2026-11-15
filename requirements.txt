@@ -6,3 +6,8 @@ faiss-cpu
 
 # Tests
 pytest
+
+# LLM and app (Person B)
+ollama
+streamlit
+
