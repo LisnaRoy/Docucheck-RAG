@@ -1,15 +1,98 @@
-
 [
   {
-    "question": "What is the minimum attendance requirement?",
-    "expected_answer": "75%",
-    "expected_pages": [12],
+    "question": "What is the minimum attendance requirement for laboratory courses?",
+    "expected_answer": "Students must attend at least 80% of laboratory sessions (they may miss at most 20%).",
+    "expected_pages": [
+      10
+    ],
     "answerable": true
   },
   {
-    "question": "What is the university's annual profit?",
-    "expected_answer": "Not found in the document",
-    "expected_pages": [],
-    "answerable": false
-  }
+    "question": "What is the semester contribution for winter semester 2026/27?",
+    "expected_answer": "342.50 euros.",
+    "expected_pages": [
+      7
+    ],
+    "answerable": true
+  },
+  {
+    "question": "What is the enrolment deadline for the winter semester?",
+    "expected_answer": "15 September.",
+    "expected_pages": [
+      3
+    ],
+    "answerable": true
+  },
+  {
+    "question": "Where is the International Office located?",
+    "expected_answer": "Kepler Building, Room K 1.04, on the main campus.",
+    "expected_pages": [
+      2
+    ],
+    "answerable": true
+  },
+  {
+    "question": "How many credits does an AUAS Bachelor’s programme require?",
+    "expected_answer": "210 ECTS credits.",
+    "expected_pages": [
+      10
+    ],
+    "answerable": true
+  },
+  {
+    "question": "What is the lowest passing examination grade?",
+    "expected_answer": "4.0.",
+    "expected_pages": [
+      12
+    ],
+    "answerable": true
+  },
+  {
+    "question": "How long can students borrow standard library books?",
+    "expected_answer": "Four weeks.",
+    "expected_pages": [
+      14
+    ],
+    "answerable": true
+  },
+  {
+    "question": "What is the monthly rent range for student residences?",
+    "expected_answer": "290 to 480 euros per month, including utilities and internet.",
+    "expected_pages": [
+      15
+    ],
+    "answerable": true
+  },
+  {
+    "question": "How much are student assistants paid per hour without a Bachelor’s degree?",
+    "expected_answer": "13.80 euros per hour.",
+    "expected_pages": [
+      16
+    ],
+    "answerable": true
+  },
+  {
+    "question": "What is the emergency telephone number listed in the handbook?",
+    "expected_answer": "112.",
+    "expected_pages": [
+      17
+    ],
+    "answerable": true
+  },
+  {
+    "question": "Can I skip one out of every five lab sessions?",
+    "expected_answer": "Yes. Students may miss at most 20% of laboratory sessions.",
+    "expected_pages": [
+      10
+    ],
+    "answerable": true
+  },
+  {
+    "question": "Do I have to pay tuition for a consecutive Bachelor’s or Master’s programme?",
+    "expected_answer": "No. AUAS charges no tuition fees for consecutive Bachelor’s and Master’s programmes, including for non-EU students.",
+    "expected_pages": [
+      7
+    ],
+    "answerable": true
+    }
 ]
